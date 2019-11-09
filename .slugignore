@@ -1,0 +1,12 @@
+.python-version
+boar/
+crow/
+monkey/
+.ipynb_checkpoints
+.vscode
+hello.py
+crow_pretest.jpg
+AnimalClassifier.txt
+.npy
+animal_cnn_aug.h5
+animal_cnn.h5

@@ -1,0 +1,1 @@
+web: gunicorn predict_file:app --log-file -
