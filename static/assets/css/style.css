@@ -65,7 +65,7 @@ small {
 }
 
 form {
-    height: 90px;
+    height: 200px;
 }
 
 input[type='file'] {
@@ -76,6 +76,10 @@ input[type='file'] {
     color: #ffffff;
     font-weight: 600;
     font-size: 15px;
+}
+
+.error-message {
+    color: white;
 }
 
 a:hover {
@@ -120,6 +124,7 @@ a:hover {
     -moz-transition: all 0.8s;
     -webkit-transition: all 0.8s;
     transition: all 0.8s;
+    color: white;
 }
 
 .primary-btn:hover {
