@@ -178,7 +178,8 @@ def upload_file():
     # 下記でjinja2 Templateを用いてレンダリングすれば、flashが表示されるようになる。
     # 公式リファレンス：https://flask.palletsprojects.com/en/1.1.x/patterns/flashing/
     # jinja2のTemplateを用いたファイルは必ずtemplatesフォルダに格納すること。jinja2のフレームワークでの決まりらしい。
-    return render_template('flash_test.html')
+    return render_template('index.html')
+
 
 # ディレクトリにあるファイルをブラウザ送信(表示)する
 # send_from_directory：引数で与えられたディレクトリからファイルを送る
