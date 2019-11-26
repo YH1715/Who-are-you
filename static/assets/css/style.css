@@ -85,6 +85,11 @@ input[type='file'] {
     width: 100%;
 }
 
+#fake_text_box {
+    margin-bottom: 20px;
+
+}
+
 .percentage {
     margin-bottom: 1em;
 
