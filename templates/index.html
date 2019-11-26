@@ -96,6 +96,9 @@
 
                 <form method=post enctype=multipart/form-data> <!--<input id="file_upload" type=file name=file>
                     ファイルを選択して下さい-->
+
+                    <!--JQueryでファイル選択フォームのデザインを変更
+                    参考：https://proengineer.internous.co.jp/content/columnfeature/7605-->
                     <input type="file" id="file" name=file onchange="$('#fake_text_box').val($(this).val())">
                     <input type="text" id="file_upload" class="primary-btn" readonly value="ファイル選択"
                         onClick="$('#file').click();">
