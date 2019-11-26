@@ -111,7 +111,7 @@ def upload_file():
             # 公式リファレンス：https://pillow.readthedocs.io/en/stable/
             #image = Image.open(filepath)
             image = Image.open(file)
-            image_clear = image.resize((300, 300))
+            image_clear = image
             #image = Image.open('crow_pretest.jpg')
 
             # 256階調のRGB色へ画像色を変換

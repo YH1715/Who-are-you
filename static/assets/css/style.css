@@ -90,6 +90,9 @@ input[type='file'] {
 
 }
 
+#result-image{
+    width: 300px;
+}
 .percentage {
     margin-bottom: 1em;
 
