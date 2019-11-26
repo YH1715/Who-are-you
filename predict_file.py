@@ -111,6 +111,7 @@ def upload_file():
             # 公式リファレンス：https://pillow.readthedocs.io/en/stable/
             #image = Image.open(filepath)
             image = Image.open(file)
+            image_clear = image
             #image = Image.open('crow_pretest.jpg')
 
             # 256階調のRGB色へ画像色を変換
@@ -118,7 +119,7 @@ def upload_file():
             image = image.convert("RGB")
 
             # 画像サイズを50×50ピクセルに揃える
-            # ※ダウンロードしてきた画像は75×75ピクセルだが、計算高速化のために50×50ピクセルに変換する
+            # ※ダウンロードしてきた画像は150×150ピクセルだが、計算高速化のために50×50ピクセルに変換する
             image = image.resize((image_size, image_size))
 
             # TensorFlow用に、Listからndarray型への変換&255で正規化　※この場合は特にnp.array()の変換と動きは変わらない
@@ -148,8 +149,8 @@ def upload_file():
 
             # アップロードされた画像をresult.html表示するために変換
             encode_image = base64.b64encode(
-                image_to_byte_array(image)).decode("utf-8")
-            encode_image = f'data:image/png;base64,{encode_image}'
+                image_to_byte_array(image_clear)).decode("utf-8")
+            encode_image = f'data:image/JPEG;base64,{encode_image}'
 
             return render_template('result.html', classes=classes, predicted=predicted, encode_file=encode_image, percentage=percentage)
 
