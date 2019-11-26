@@ -11,6 +11,11 @@ import os
 from flask import Flask, flash, request, redirect, url_for, render_template
 from werkzeug.utils import secure_filename
 
+# result.htmlでの画像表示用
+# 保存せずに表示するために、htmlのimgタグの仕様を利用時、base64で変換した画像情報を与えて表示させる
+import io
+import base64
+
 
 # 以下は推論用ライブラリのimport
 from keras.models import Sequential, load_model
@@ -140,7 +145,13 @@ def upload_file():
 
             # ソフトマックス関数を用いているため、結果を百分率に変換し、ラベル名と値を表示
             percentage = int(result[predicted] * 100)
-            return render_template('result.html', classes=classes, predicted=predicted, percentage=percentage)
+
+            # アップロードされた画像をresult.html表示するために変換
+            encode_image = base64.b64encode(
+                image_to_byte_array(image)).decode("utf-8")
+            encode_image = f'data:image/png;base64,{encode_image}'
+
+            return render_template('result.html', classes=classes, predicted=predicted, encode_file=encode_image, percentage=percentage)
 
             # url_forメソッドでfilename変数の値を用いて動的にURLを生成し、それを用いてredirectメソッドでページを遷移させる
             # url_for：第一引数として与えられた関数から返却された値と、第二引数以降に渡された変数を用いてURLを生成する
@@ -189,3 +200,13 @@ def upload_file():
 @app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+# Pillowのimage型をbyte型へ変換
+# アップロードされた画像をresult.html表示するために、byte型→base64型への変換が必要なため
+
+
+def image_to_byte_array(image: Image):
+    imgByteArr = io.BytesIO()
+    image.save(imgByteArr, format='JPEG')
+    imgByteArr = imgByteArr.getvalue()
+    return imgByteArr
