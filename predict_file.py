@@ -111,7 +111,7 @@ def upload_file():
             # 公式リファレンス：https://pillow.readthedocs.io/en/stable/
             #image = Image.open(filepath)
             image = Image.open(file)
-            image_clear = image
+            image_clear = image.resize((300, 300))
             #image = Image.open('crow_pretest.jpg')
 
             # 256階調のRGB色へ画像色を変換
@@ -148,6 +148,7 @@ def upload_file():
             percentage = int(result[predicted] * 100)
 
             # アップロードされた画像をresult.html表示するために変換
+            # 参考：https://teratail.com/questions/89341
             encode_image = base64.b64encode(
                 image_to_byte_array(image_clear)).decode("utf-8")
             encode_image = f'data:image/JPEG;base64,{encode_image}'

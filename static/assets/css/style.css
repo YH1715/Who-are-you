@@ -79,7 +79,10 @@ input[type='file'] {
 }
 
 .result-brock {
-    background-color: aqua;
+    background-color: #377dff;
+    color: white;
+    margin: 0px;
+    width: 100%;
 }
 
 .percentage {
