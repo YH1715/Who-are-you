@@ -97,7 +97,7 @@ def upload_file():
             # 推論し、結果をreturnしていく
 
             #動物のラベル (取得した動物種)
-            classes = ["monkey", "boar", "crow"]
+            classes = ["サル", "イノシシ", "カラス"]
 
             # 変換後の画像ピクセル数
             image_size = 50
@@ -140,7 +140,7 @@ def upload_file():
 
             # ソフトマックス関数を用いているため、結果を百分率に変換し、ラベル名と値を表示
             percentage = int(result[predicted] * 100)
-            return "{0}({1}%)".format(classes[predicted], percentage)
+            return render_template('result.html', classes=classes, predicted=predicted, percentage=percentage)
 
             # url_forメソッドでfilename変数の値を用いて動的にURLを生成し、それを用いてredirectメソッドでページを遷移させる
             # url_for：第一引数として与えられた関数から返却された値と、第二引数以降に渡された変数を用いてURLを生成する

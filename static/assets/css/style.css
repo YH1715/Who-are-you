@@ -78,6 +78,15 @@ input[type='file'] {
     font-size: 15px;
 }
 
+.result-brock {
+    background-color: aqua;
+}
+
+.percentage {
+    margin-bottom: 1em;
+
+}
+
 .error-message {
     color: white;
 }
