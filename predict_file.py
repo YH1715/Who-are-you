@@ -96,7 +96,7 @@ def upload_file():
             # saveメソッドに与えたパスにファイルを保存
             # os.path.join　公式リファレンス：https://docs.python.org/ja/3/library/os.path.html?highlight=os%20path%20join#os.path.join
             # save 公式リファレンス：https://werkzeug.palletsprojects.com/en/0.16.x/datastructures/#werkzeug.datastructures.FileStorage
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            # filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             # file.save(filepath)
 
             # 推論し、結果をreturnしていく

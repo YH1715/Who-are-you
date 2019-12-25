@@ -6,6 +6,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
+
 body {
     font-family: 'Titillium Web', sans-serif;
     font-size: 15px;
@@ -14,7 +15,7 @@ body {
 }
 
 section {
-    padding: 70px 10px;
+    padding: 10px 10px 30px 10px;
 }
 
 h1,
@@ -64,9 +65,6 @@ small {
     line-height: 2;
 }
 
-form {
-    height: 200px;
-}
 
 input[type='file'] {
     display: none;
@@ -79,7 +77,6 @@ input[type='file'] {
 }
 
 .result-brock {
-    background-color: #377dff;
     color: white;
     margin: 0px;
     width: 100%;
@@ -87,14 +84,17 @@ input[type='file'] {
 
 #fake_text_box {
     margin-bottom: 20px;
+    width: 100%;
+    max-width: 240px;
 
 }
 
 #result-image{
     width: 300px;
+    margin: 10px;
 }
-.percentage {
-    margin-bottom: 1em;
+.result-animal {
+    color: white;
 
 }
 
@@ -168,7 +168,8 @@ a:hover {
 }
 
 .topmargin-lg {
-    margin-top: 60px !important;
+    margin-bottom: 30px !important; 
+    
 }
 
 .text-light {
@@ -205,6 +206,7 @@ a:hover {
     font-size: 18px;
     font-weight: 300;
 }
+
 
 /*/////////////////////////////////////////
 Navbar
@@ -340,6 +342,13 @@ Media Queries
     .secondary-btn {
         max-width: none;
         margin: 5px 0px;
+    }
+
+    #fake_text_box {
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: none;
+    
     }
 }
 
