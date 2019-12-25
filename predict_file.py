@@ -124,7 +124,7 @@ def upload_file():
                 orientation = exifinfo.get(0x112, 1)
 
                 # 画像を回転
-                image_clear = rotateImage(img_tmp, orientation)
+                image_clear = rotateImage(image_clear, orientation)
 
             except:
                 # exif情報が取得できなかった場合は、そのまま処理を続ける
