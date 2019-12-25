@@ -114,6 +114,23 @@ def upload_file():
             image_clear = image
             #image = Image.open('crow_pretest.jpg')
 
+            # 画像回転不具合対応：exif情報を取得し、それをもとに画像を回転
+            # 参考：https://max999blog.com/python-rotate-image-by-exif-orientation/
+            try:
+                # exif情報取得
+                exifinfo = image_clear._getexif()
+
+                # exif情報からOrientationの取得
+                orientation = exifinfo.get(0x112, 1)
+
+                # 画像を回転
+                image_clear = rotateImage(img_tmp, orientation)
+
+            except:
+                # exif情報が取得できなかった場合は、そのまま処理を続ける
+                # ホントは拡張子でexifを取得する、しないを判別した方がいいかもしれない。
+                pass
+
             # 256階調のRGB色へ画像色を変換
             # 公式リファレンス：https://pillow.readthedocs.io/en/3.1.x/reference/Image.html#PIL.Image.Image.convert
             image = image.convert("RGB")
